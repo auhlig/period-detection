@@ -46,6 +46,7 @@ def plot_with_period(df_data_aggregated, diffs, other_tolerances, best_tolerance
     plt.xlabel('Time in time points')
     plt.savefig('data_model.png',format='png')
     plt.show()
+    plt.close()
 
 
 
@@ -58,6 +59,7 @@ def plot_with_period(df_data_aggregated, diffs, other_tolerances, best_tolerance
         plt.hlines(y=[best_tolerance], xmin=0, xmax=len(diffs), colors='red')
     plt.savefig('shift_acf.png',format='png')
     plt.show()
+    plt.close()
 
     plt.plot(lag_list, r_list, label="r")
     plt.plot(lag_list, p_list, label="p")
@@ -67,10 +69,12 @@ def plot_with_period(df_data_aggregated, diffs, other_tolerances, best_tolerance
     plt.xlabel('Shift of the data in time points')
     plt.savefig('acf.png',format='png')
     plt.show()
+    plt.close()
 
     plt.plot(df_data_difference_signal_model["value"])
     plt.title("Difference of data and model")
     plt.show()
+    plt.close()
 
     plt.plot(lag_list_diff, r_list_diff, label="r")
     plt.plot(lag_list_diff, p_list_diff, label="p")
@@ -80,6 +84,7 @@ def plot_with_period(df_data_aggregated, diffs, other_tolerances, best_tolerance
     plt.xlabel('Shift of the data minus model in time points')
     plt.savefig('acf_data_model.png',format='png')
     plt.show()
+    plt.close()
 
 def plot_without_period(df_data_aggregated, diffs, lag_list, r_list, p_list, corfunc):
     '''
@@ -98,11 +103,13 @@ def plot_without_period(df_data_aggregated, diffs, lag_list, r_list, p_list, cor
     plt.legend()
     plt.title("time series data")
     plt.show()
+    plt.close()
 
     plt.plot(list(np.array(diffs)))
     plt.title('Norm of difference between unshifted and shifted autocorrelation function')
     plt.xlabel('Shift in time points')
     plt.show()
+    plt.close()
 
     plt.plot(lag_list, r_list, label="r")
     plt.plot(lag_list, p_list, label="p")
@@ -111,3 +118,4 @@ def plot_without_period(df_data_aggregated, diffs, lag_list, r_list, p_list, cor
     plt.legend()
     plt.title("Autocorrelation function of data")
     plt.show()
+    plt.close()
